@@ -1,0 +1,28 @@
+services:
+  main:
+    build: .
+    environment:
+      DATABASE_DRIVER: "postgres"
+      DATABASE_USER: "katalog"
+      DATABASE_PASSWORD: "password"
+      DATABASE_HOST: "postgres"
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: "katalog"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DATABASE: "katalog"
+      POSTGRES_USER: "katalog"
+      POSTGRES_PASSWORD: "password"
+    restart: "no"
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U katalog -d katalog'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
