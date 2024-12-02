@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     replicas INT NOT NULL,
     true_replicas INT NOT NULL,
-    labels JSONB NOT NULL
+    labels JSONB
   );
