@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TYPE ROLE AS ENUM('admin', 'user');
+CREATE TYPE IF NOT EXISTS ROLE AS ENUM('admin', 'user');
 
 CREATE TABLE IF NOT EXISTS
     katalog.accounts (

@@ -1,1 +1,5 @@
+DROP EXTENSION IF EXISTS "uuid-ossp";
+
+DROP TYPE IF EXISTS "ROLE";
+
 DROP TABLE IF EXISTS katalog.accounts;
